@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'CBV_app/base.html' %}
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">
+        {% block update_block %}
+         <h1>Update {{ company.name }}:</h1>
+        {% endblock %}
+        <form method ="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update" class="btn btn-warning">
+<!--           <a href="{% url 'CBV_app:details' pk=company.pk %}">Cancel</a>-->
+        </form>
+
+    </div>
+</div>
+{% endblock %}

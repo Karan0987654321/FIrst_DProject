@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'CBV_app/base.html' %}
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">
+        {% block form_block %}
+        <h1>
+            {% if not form.instance.pk %}
+                Create Company
+            {% else %}
+                Update Company
+            {% endif %}
+        </h1>
+        {% endblock %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</div>
+{% endblock %}

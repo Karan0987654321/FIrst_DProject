@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'CBV_app/base.html' %}
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>List Of Companies: </h1>
+        <ol>
+            {% for comp in CompL %}
+                <h2><li><a href="{{ comp.id }}">{{ comp.name }}</a></li></h2>
+            {% endfor %}
+        </ol>
+
+        <a href="{% url 'CBV_app:create' %}" class="btn btn-warning">Create</a>
+    </div>
+</div>
+{% endblock %}
